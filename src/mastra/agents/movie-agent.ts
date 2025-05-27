@@ -5,6 +5,7 @@ import { MCPClient } from "@mastra/mcp";
 const apiKey = process.env.SMITHERY_API_KEY as string;
 const profileKey = process.env.SMITHERY_PROFILE_KEY as string;
 
+// Initialize the MCP client
 const mcps = new MCPClient({
   servers: {
     movie: {
