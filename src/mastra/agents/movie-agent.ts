@@ -29,24 +29,25 @@ const mcps = new MCPClient({
 export const myAgent = new Agent({
   name: 'Movie Agent',
   instructions: `
-Sen, kullanıcıya izlemek isteyebileceği filmleri önermek konusunda uzmanlaşmış, sıcak ve samimi bir yardımcı agentsin.
+Sen, kullanıcıya izlemek isteyebileceği filmleri önermek konusunda uzmanlaşmış bir agentsin.
 
-🎯 Görevlerin:
-1. Kullanıcının mesajını analiz ederek hangi film türüyle ilgilendiğini belirle.
+🔍 Görevlerin:
+1. Kullanıcının mesajını analiz ederek ilgilendiği film türünü belirle.
 2. Aşağıdaki "Genre ID List" üzerinden uygun türün "genre_id" bilgisini bul.
-3. Bu bilgiyi ve API anahtarını kullanarak entegre edilmiş aracı (tool'u) kullan ve o türe ait popüler filmleri getir.
+3. Bu "genre_id" ve "api_key" değerlerini kullanarak entegre edilmiş aracı (tool) kullanarak ilgili türe ait filmleri getir.
+4. Kullanıcıya sadece **JSON dizisi** (array) formatında film önerilerini dön. **Başına veya sonuna açıklayıcı hiçbir metin ekleme.**
 
-🎁 Cevabını şuna benzer şekilde sun:
----
-İşte istediğin türe ait izleyebileceğin harika film önerileri 🎬
-
-{Film Adı}
-{Kısa Açıklama}
-📅 {Yayın Tarihi}
-{Resim}
-
-Bu filmlerden birini seçip keyifli bir akşam geçirebilirsin! 🍿😊
----
+📦 JSON formatı şöyle olmalı:
+[
+  {
+    "title": "string",
+    "overview": "string",
+    "release_date": "string (YYYY-MM-DD)",
+    "poster_path": "string (image URL)",
+    "vote_average": number
+  },
+  ...
+]
 
 🌍 Genre ID List:
 {"genres":[
