@@ -9,6 +9,7 @@ const mcps = new MCPClient({
   servers: {
     movie: {
       command: "npx",
+      type: "stdio", 
       args: [
         "npx",
         "-y",
@@ -18,11 +19,12 @@ const mcps = new MCPClient({
         "--key",
         apiKey,
         "--profile",
-        profileKey
+        profileKey,
       ],
     },
   },
 });
+
 
 export const myAgent = new Agent({
   name: 'Movie Agent',
