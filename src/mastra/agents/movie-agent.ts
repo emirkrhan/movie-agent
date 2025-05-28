@@ -25,7 +25,6 @@ const mcps = new MCPClient({
   },
 });
 
-
 export const myAgent = new Agent({
   name: 'Movie Agent',
   instructions: `
